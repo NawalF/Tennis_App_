@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TennisCoach.Models.Schedules>
+
+<h2>Schedules</h2>
+<table class="table">
+    <thead>
+        <tr>
+         
+            <th>Location</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Coach</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var schedule in Model)
+            {
+                <tr>
+                    <td>@schedule.Location</td>
+                    <td>@schedule.Description</td>
+                    <td>@schedule.Date.ToString("MMMM dd, yyyy")</td>
+                    <td>@schedule.Coach?.FirstName @schedule.Coach?.LastName</td> 
+                    <td>
+                       
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
